@@ -1,0 +1,46 @@
+import java.util.Scanner;
+class Calculator {
+
+    public int Addition(int num1, int num2){
+        return num1 + num2;
+    }
+    public int Substraction(int num1, int num2){
+        return num1 - num2;
+    }
+    public int Multiplication(int num1,int num2){
+        return num1 * num2;
+    }
+    public int Division(int num1, int num2){
+        if (num2 != 0) return num1 / num2;
+        else return 0;
+    }
+}
+public class CalculatorTest extends Calculator {
+   public static void main(String[] args) {
+   Calculator cc = new Calculator();
+      int num1;
+      int num2;
+      int ans;
+      char op;
+      Scanner reader = new Scanner(System.in);
+      System.out.print("Enter two numbers: ");
+      num1 = reader.nextInt();
+      num2 = reader.nextInt();
+      System.out.print("\nEnter an operator (+, -, *, /): ");
+      op = reader.next().charAt(0);
+      switch(op) {
+         case '+': ans =cc.Addition(num1,num2);
+            break;
+         case '-': ans =cc.Substraction(num1,num2);
+            break;
+         case '*': ans =cc.Multiplication(num1,num2);
+            break;
+         case '/': ans =cc.Division(num1,num2);
+            break;
+         default:  System.out.printf("Error! Enter correct operator");
+            return;
+      }
+      System.out.print("\nThe result is given as follows:\n");
+      System.out.printf(num1 + " " + op + " " + num2 + " = " + ans);
+   }
+ }
